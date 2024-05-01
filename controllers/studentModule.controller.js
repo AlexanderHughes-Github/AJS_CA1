@@ -3,8 +3,8 @@ const StudentModule = require('../models/Student_Module');
 exports.readData = async (req, res) => {
     try {
         const studentModules = await StudentModule.find({})
-            .populate('student_id')  // Assuming you want to populate details of the student
-            .populate('module_id'); // And details of the module
+            .populate('student_id')
+            .populate('module_id');
         res.status(200).json(studentModules);
     } catch (error) {
         res.status(500).json({ message: "Error retrieving student-modules", error: error });
