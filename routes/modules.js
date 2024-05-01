@@ -3,6 +3,8 @@ const router = express.Router();
 const moduleController = require('../controllers/module.controller');
 const authenticate = require('../middleware/auth');
 
+console.log("Adding module routes");
+
 router.get('/', moduleController.readData);
 router.get('/:id', moduleController.readOne);
 router.post('/', authenticate, moduleController.createData);

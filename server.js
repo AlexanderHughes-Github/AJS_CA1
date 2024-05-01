@@ -2,10 +2,13 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.get('/test', (req, res) => {
+    res.status(200).send('Test route is working');
+});
+
 require('dotenv').config();
 const dbInit = require('./configs/db');
-
-dbInit();  // Initializing database
+dbInit();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +21,3 @@ app.use('/api/studentModules', require('./routes/studentModules'));
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-app.get('/test', (req, res) => {
-    res.status(200).send('Server is running and accessible');
-});
-
