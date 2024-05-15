@@ -1,6 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User'); // Adjust path as necessary
+const User = require('../models/User');
 const router = express.Router();
 
 // Register User
