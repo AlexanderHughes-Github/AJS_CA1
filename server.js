@@ -17,6 +17,7 @@ app.use('/api/students', require('./routes/students'));
 app.use('/api/lecturers', require('./routes/lecturers'));
 app.use('/api/modules', require('./routes/modules'));
 app.use('/api/studentModules', require('./routes/studentModules'));
+app.use('/api/users', require('./routes/users'));
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

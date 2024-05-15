@@ -7,11 +7,12 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save', async function(next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 8);
-  }
-  next();
-});
+    // Ensure we hash the password only if it is new or modified.
+    if (this.isModified('password')) {
+      this.password = await bcrypt.hash(this.password, 8);
+    }
+    next();
+  });
 
 userSchema.methods.comparePassword = function(candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
